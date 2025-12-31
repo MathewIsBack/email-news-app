@@ -16,8 +16,10 @@ content = request.json()
 body = ""
 
 for article in content["articles"][:20]:
-    if article["title"] is not None:
-        body = body + article["title"] + "\n" + article["description"] + "\n" + article["url"] + 2*"\n"
+    title = article.get("title") or "No title"
+    description = article.get("description") or "No description"
+    url = article.get("url") or ""
+    body = body + title + "\n" + description + "\n" + url + 2*"\n"
     
 body = body.encode("utf-8")
 send_email(message=body)
