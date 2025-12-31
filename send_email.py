@@ -9,12 +9,12 @@ def send_email(message):
     username = "oseghaleokononfua@gmail.com"
     password = "hdfm jcqd pivf envz"
 
-    receiver = "bryanokononfua@gmail.com"
+    receiver = "oseghaleokononfua@gmail.com"
     # context = ssl.create_default_context()
 
     # Create MIME email (UTF-8)
     msg = MIMEText(message, "plain", "utf-8")
-    msg["Subject"] = "Tesla News Update"
+    msg["Subject"] = "Today's News Update"
     msg["From"] = username
     msg["To"] = receiver
 
@@ -23,7 +23,7 @@ def send_email(message):
     with smtplib.SMTP_SSL(host, port, context=context) as server:
         server.login(username, password)
         # server.sendmail(username, receiver, message)
-        server.send_message(msg)
+        server.send_message(msg) 
         
 
 # send_email("Hello, how are you?")
